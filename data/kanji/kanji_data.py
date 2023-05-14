@@ -58,12 +58,14 @@ class KanjiParser:
             elif reading.getAttribute("r_type") == "ja_kun":
                 kunyomi.append(reading.firstChild.data)
 
-        meanings = {}
+        meanings_dict = {}
         for meaning in character.getElementsByTagName("meaning"):
-            if meaning.getAttribute("m_lang") == "":
-                meanings["en"] = meaning.firstChild.data
-                continue
-            meanings[meaning.getAttribute("m_lang")] = meaning.firstChild.data
+            label = meaning.getAttribute("m_lang") if meaning.getAttribute("m_lang") else "en"
+            if label not in meanings_dict:
+                meanings_dict[label] = []
+            meanings_dict[label].append(meaning.firstChild.data)
+
+        meanings_array = [{"lang": key, "value": value} for key, value in meanings_dict.items()]
 
         nanori = [x.firstChild.data for x in character.getElementsByTagName("nanori")]
 
@@ -80,7 +82,7 @@ class KanjiParser:
             "korean_h_readings": korean_h_reading,
             "onyomi_readings": onyomi,
             "kunyomi_readings": kunyomi,
-            "meanings": meanings,
+            "meanings": meanings_array,
             "nanori": nanori
         }
 
