@@ -32,7 +32,8 @@ class KanjiParser:
 
     def get_kanji_data(self, character: minidom.Element):
         literal = character.getElementsByTagName("literal")[0].firstChild.data
-        codepoints = {x.getAttribute("cp_type"): x.firstChild.data for x in character.getElementsByTagName("cp_value")}
+        codepoints_dict = {x.getAttribute("cp_type"): x.firstChild.data for x in character.getElementsByTagName("cp_value")}
+        codepoints_array = [{"type": key, "value": value} for key, value in codepoints_dict.items()]
         radicals = self.radicals_data[literal] if literal in self.radicals_data else None
         grade = int(character.getElementsByTagName("grade")[0].firstChild.data) if len(
             character.getElementsByTagName("grade")) > 0 else None
@@ -68,7 +69,7 @@ class KanjiParser:
 
         return {
             "literal": literal,
-            "codepoints": codepoints,
+            "codepoints": codepoints_array,
             "radicals": radicals,
             "grade": grade,
             "stroke_count": stroke_count,
