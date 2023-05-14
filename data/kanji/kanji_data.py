@@ -34,10 +34,10 @@ class KanjiParser:
         literal = character.getElementsByTagName("literal")[0].firstChild.data
         codepoints = {x.getAttribute("cp_type"): x.firstChild.data for x in character.getElementsByTagName("cp_value")}
         radicals = self.radicals_data[literal] if literal in self.radicals_data else None
-        grade = character.getElementsByTagName("grade")[0].firstChild.data if len(
+        grade = int(character.getElementsByTagName("grade")[0].firstChild.data) if len(
             character.getElementsByTagName("grade")) > 0 else None
-        stroke_count = character.getElementsByTagName("stroke_count")[0].firstChild.data
-        frequency = character.getElementsByTagName("freq")[0].firstChild.data if len(
+        stroke_count = int(character.getElementsByTagName("stroke_count")[0].firstChild.data)
+        frequency = int(character.getElementsByTagName("freq")[0].firstChild.data) if len(
             character.getElementsByTagName("freq")) > 0 else None
         jlpt = self.jlpt_data[literal]["jlpt_new"] if literal in self.jlpt_data else None
         pinyin = []
