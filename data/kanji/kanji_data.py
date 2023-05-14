@@ -28,7 +28,7 @@ class KanjiParser:
         data_file["characters"] = characters_array
 
         with open("kanji_data.json", "w") as f:
-            json.dump(data_file, f, indent=4)
+            json.dump(data_file, f, indent=4, ensure_ascii=False)
 
     def get_kanji_data(self, character: minidom.Element):
         literal = character.getElementsByTagName("literal")[0].firstChild.data
