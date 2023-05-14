@@ -1,1 +1,1 @@
-from fetch_radical_files import fetch_radical_files
+from fetch_radicals_files import fetch_radical_files
