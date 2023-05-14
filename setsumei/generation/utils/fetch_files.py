@@ -3,10 +3,6 @@ import gzip
 import shutil
 import os
 
-KANJIDIC2_URL = 'http://www.edrdg.org/kanjidic/kanjidic2.xml.gz'
-KRADFILE_URL = 'http://ftp.edrdg.org/pub/Nihongo/kradfile.gz'
-RADKFILE_URL = 'http://ftp.edrdg.org/pub/Nihongo/radkfile.gz'
-
 
 def download_file(url, filename):
     # Get the directory of the current module

@@ -6,6 +6,9 @@ ALL_LABELS = ["literal", "codepoints", "radicals", "grade", "stroke_count", "fre
 
 
 class KanjiParser:
+    """
+    This class parses the kanjidic2.xml file and creates a json file with the generation.
+    """
     def __init__(self, needed_labels=None):
         if needed_labels is None:
             needed_labels = ALL_LABELS
@@ -15,8 +18,12 @@ class KanjiParser:
         self.radicals_data = {}
         self.get_radicals()
 
-    def create_json_data(self):
-        file = minidom.parse('kanjidic2.xml')
+    def create_json_data(self) -> None:
+        """
+        Creates a json file with the generation from the kanjidic2.xml file.
+        :return:
+        """
+        file = minidom.parse('data/kanjidic2.xml')
         kanji_list = file.getElementsByTagName("character")
         data_file = {}
         characters_array = []
@@ -27,7 +34,7 @@ class KanjiParser:
 
         data_file["characters"] = characters_array
 
-        with open("kanji_data.json", "w") as f:
+        with open("build/kanji_data.json", "w") as f:
             json.dump(data_file, f, indent=4, ensure_ascii=False)
 
     def get_kanji_data(self, character: minidom.Element):
@@ -88,7 +95,7 @@ class KanjiParser:
 
     def get_radicals(self):
         # 唖 : ｜ 一 口
-        with open('kradfile', 'r', encoding='EUC-JP') as f:
+        with open('../radical/data/kradfile', 'r', encoding='EUC-JP') as f:
             for line in f:
                 if line[0] == "#":
                     continue
@@ -98,6 +105,6 @@ class KanjiParser:
                 self.radicals_data[kanji] = radicals
 
     def get_jlpt_data(self):
-        with open('./jlpt/kanji.json', 'r') as f:
+        with open('jlpt/kanji.json', 'r') as f:
             data = json.load(f)
         self.jlpt_data = data

@@ -29,7 +29,7 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     packages=['setsumei'],
-    package_data={'setsumei': ['data/*.sql', 'data/*.json', 'data/*.gz', 'data/*.xml']},
+    package_data={'setsumei': ['generation/*.sql', 'generation/*.json', 'generation/*.gz', 'generation/*.xml']},
     include_package_data=True,
     platforms='any',
     # Reference: https://pypi.python.org/pypi?%3Aaction=list_classifiers
