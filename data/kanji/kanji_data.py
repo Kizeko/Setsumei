@@ -92,7 +92,7 @@ class KanjiParser:
                     continue
                 line = line.split(" : ")
                 kanji = line[0]
-                radicals = line[1].split(" ")
+                radicals = line[1].replace("\n", "").split(" ")
                 self.radicals_data[kanji] = radicals
 
     def get_jlpt_data(self):
