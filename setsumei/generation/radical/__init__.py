@@ -1,2 +1,0 @@
-from fetch_radicals_files import fetch_radical_files
-from radicals_data import create_kanji_to_radicals_data, create_radical_to_kanji
