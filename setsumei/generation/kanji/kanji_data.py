@@ -105,6 +105,6 @@ class KanjiParser:
                 self.radicals_data[kanji] = radicals
 
     def get_jlpt_data(self):
-        with open('jlpt/kanji.json', 'r') as f:
+        with open('data/jlpt/kanji.json', 'r') as f:
             data = json.load(f)
         self.jlpt_data = data
