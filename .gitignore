@@ -1,8 +1,5 @@
-kradfile
-setsumei/generation/radical/data/radkfile
-kanjidic2.xml
-kanji_data.json
-kanji_to_radicals.json
-radical_to_kanji.json
-jmdict-all*
-Jmdict*
+setsumei/generation/kanji/build
+setsumei/generation/kanji/data
+setsumei/generation/radical/build
+setsumei/generation/radical/data
+setsumei/generation/vocabulary/data

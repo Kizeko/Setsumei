@@ -1,0 +1,12 @@
+[submodule "JmdictFurigana"]
+	path = JmdictFurigana
+	url = https://github.com/Doublevil/JmdictFurigana
+[submodule "kanji-data"]
+	path = kanji-data
+	url = https://github.com/davidluzgouveia/kanji-data
+[submodule "jlpt-vocab-api"]
+	path = jlpt-vocab-api
+	url = https://github.com/wkei/jlpt-vocab-api
+[submodule "jmdict-simplified"]
+	path = jmdict-simplified
+	url = https://github.com/scriptin/jmdict-simplified
